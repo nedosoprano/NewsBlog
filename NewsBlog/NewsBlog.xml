@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NewsBlog</name>
+    </assembly>
+    <members>
+        <member name="T:NewsBlog.Controllers.GuestController">
+            <summary>
+            Controller for feedback page
+            </summary>
+        </member>
+        <member name="F:NewsBlog.Controllers.GuestController._feedbackServices">
+            <summary>
+            feedback service
+            </summary>
+        </member>
+        <member name="M:NewsBlog.Controllers.GuestController.#ctor(NewsBlogBLL.Services.IService{NewsBlogDAL.Models.Feedback})">
+            <summary>
+            Connect to feedback service
+            </summary>
+            <param name="feedbackServices"></param>
+        </member>
+        <member name="M:NewsBlog.Controllers.GuestController.Guest">
+            <summary>
+            Open feedbacks page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.GuestController.Guest(NewsBlogDAL.Models.Feedback)">
+            <summary>
+            Feedback handling page
+            </summary>
+            <param name="feedback">new feedback</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewsBlog.Controllers.HomeController">
+            <summary>
+            Controller for main page
+            </summary>
+        </member>
+        <member name="F:NewsBlog.Controllers.HomeController._articlesService">
+            <summary>
+            article service
+            </summary>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.#ctor(NewsBlogBLL.Services.IService{NewsBlogDAL.Models.Article})">
+            <summary>
+            Connect to article service
+            </summary>
+            <param name="articlesService"></param>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.Index">
+            <summary>
+            Open main page
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.Index(System.String)">
+            <summary>
+            Open main page with choosen tags
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.Details(System.Int32)">
+            <summary>
+            Open article full text
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.GetTags(System.String)">
+            <summary>
+            Separate tags
+            </summary>
+            <param name="tags"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NewsBlog.Controllers.QuestionnaireController">
+            <summary>
+            Controller for questionneire pages
+            </summary>
+        </member>
+        <member name="F:NewsBlog.Controllers.QuestionnaireController._questionnaireResultServices">
+            <summary>
+            questionneire service
+            </summary>
+        </member>
+        <member name="M:NewsBlog.Controllers.QuestionnaireController.#ctor(NewsBlogBLL.Services.IService{NewsBlogDAL.Models.QuestionnaireResult})">
+            <summary>
+            Connect to questionneire page
+            </summary>
+            <param name="questionnaireResultService"></param>
+        </member>
+        <member name="M:NewsBlog.Controllers.QuestionnaireController.Questionnaire">
+            <summary>
+            Page for fill questionneire
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.QuestionnaireController.Questionnaire(NewsBlogDAL.Models.QuestionnaireResult)">
+            <summary>
+            Questionneire result page
+            </summary>
+            <param name="result"></param>
+            <returns>questionneire result page</returns>
+        </member>
+        <member name="T:NewsBlog.DependencyResolverModule">
+            <summary>
+            Dependency Resolver Module
+            </summary>
+        </member>
+        <member name="M:NewsBlog.DependencyResolverModule.Load">
+            <summary>
+            Creation Dependency Injections
+            </summary>
+        </member>
+        <member name="T:NewsBlog.MvcApplication">
+            <summary>
+            app settings
+            </summary>
+        </member>
+        <member name="M:NewsBlog.MvcApplication.Application_Start">
+            <summary>
+            app start and add some settings
+            </summary>
+        </member>
+        <member name="T:NewsBlog.Helpers.ListHelper">
+            <summary>
+            Create list for integrate in html
+            </summary>
+        </member>
+        <member name="M:NewsBlog.Helpers.ListHelper.CreateList(System.Web.Mvc.HtmlHelper,System.Collections.Generic.List{NewsBlogDAL.Enums.Preference})">
+            <summary>
+            Create list
+            </summary>
+            <param name="html"></param>
+            <param name="items"></param>
+            <returns>html string</returns>
+        </member>
+        <member name="T:NewsBlog.Helpers.PickListHelper">
+            <summary>
+            Create list of inputters for integrate in html
+            </summary>
+        </member>
+        <member name="M:NewsBlog.Helpers.PickListHelper.CreateList(System.Web.Mvc.HtmlHelper,System.Array,System.String,System.String)">
+            <summary>
+            Create list of inputters
+            </summary>
+            <param name="html"></param>
+            <param name="items"></param>
+            <param name="inputType"></param>
+            <param name="theme"></param>
+            <returns>html string</returns>
+        </member>
+    </members>
+</doc>

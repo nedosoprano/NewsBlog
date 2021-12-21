@@ -1,0 +1,24 @@
+﻿
+@using NewsBlog.Helpers
+@using NewsBlogDAL.Enums
+
+@model NewsBlogDAL.Models.QuestionnaireResult
+
+@{
+    ViewBag.Title = "Questionnaire";
+    var sexes = Enum.GetValues(typeof(Sex));
+    var preferences = Enum.GetValues(typeof(Preference));
+}
+
+<form class="form-control-static" id="questionnaire" method="post" onsubmit="return QuestionnaireCheck(this)">
+    <h4>Fill out the questionnaire:</h4>
+    <input type="text" placeholder="First name" name="firstName"><br />
+    <input type="text" placeholder="Last name" name="lastName"><br />
+    <label>Choose your sex:</label><br />
+    @PickListHelper.CreateList(Html, sexes, "radio", "sex")
+    <label>Choose your preferences:</label><br />
+    @PickListHelper.CreateList(Html, preferences, "checkbox", "preferences")
+    <input id="button" type="submit" value="SUBMIT">
+</form>
+
+

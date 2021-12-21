@@ -1,0 +1,27 @@
+﻿@model IEnumerable<NewsBlogDAL.Models.Article>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="articles">
+    <form id="tags-form" method="post" onsubmit="return TagsCheck(this)">
+        <input type="text" placeholder="Tags" name="tags">
+        <input type="submit" value="SUBMIT">
+    </form>
+    <hr />
+    @if (Model.Count() == 0) {<h4>No appropriate articles!</h4>}
+    @foreach (var article in Model.Reverse())
+    {
+        <h4>@article.Title - @article.CreationDate.ToShortDateString()</h4>
+        <p>
+            @article.Text.Substring(0, article.Text.Length > 200 ? 200 : article.Text.Length - 1) ...
+            @Html.ActionLink("Details", "Details", new { id = article.Id })
+        </p>
+        <form method="post">
+            <input type="hidden" name="tags" value="@article.Tag.ToString()">
+            <input type="submit" class="tags-button" value="#@article.Tag.ToString()">
+        </form>
+        <hr />
+    }
+</div>

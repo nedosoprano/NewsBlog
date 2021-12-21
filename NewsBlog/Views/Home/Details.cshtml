@@ -1,0 +1,9 @@
+﻿@model NewsBlogDAL.Models.Article
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title - @Model.CreationDate.ToShortDateString()</h2>
+<h4>@Model.Text</h4>
+

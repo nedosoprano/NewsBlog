@@ -1,0 +1,19 @@
+﻿
+@using NewsBlog.Helpers
+
+@{
+    ViewBag.Title = "Questionnaire was sent";
+}
+
+<h4>@ViewBag.Title:</h4>
+<b>First name: </b><span>@ViewBag.QuestionnaireResult.FirstName</span>
+<br />
+<b>Last name: </b><span>@ViewBag.QuestionnaireResult.LastName</span>
+<br />
+<b>Sex: </b><span>@ViewBag.QuestionnaireResult.Sex</span>
+<br />
+<b>Preferences:</b>
+@ListHelper.CreateList(Html, ViewBag.QuestionnaireResult.Preferences)
+
+
+
