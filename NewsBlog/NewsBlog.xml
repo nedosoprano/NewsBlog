@@ -57,6 +57,12 @@
         </member>
         <member name="M:NewsBlog.Controllers.HomeController.Index(System.String)">
             <summary>
+            Open main page with sorted articles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.FilteredArticles(System.String)">
+            <summary>
             Open main page with choosen tags
             </summary>
             <returns></returns>

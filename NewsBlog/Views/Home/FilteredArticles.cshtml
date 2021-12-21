@@ -5,18 +5,9 @@
 }
 
 <div class="articles">
-    <form id="tags-form" method="post" action="/Home/FilteredArticles" onsubmit="return TagsCheck(this)">
-        <input type="text" placeholder="Tags" name="tags">
-        <input type="submit" value="SUBMIT">
-    </form>
-    <form name="sortForm" method="post">
-        <span class="sort">Article sort: </span>
-        <select name="sortMethod" onchange="submit()">
-            <option>Date</option>
-            <option>Title</option>
-        </select>
-    </form>
     <hr />
+    @if (Model.Count() == 0)
+    {<h4>No appropriate articles!</h4>}
     @foreach (var article in Model.Reverse())
     {
         <h4>@article.Title - @article.CreationDate.ToShortDateString()</h4>
