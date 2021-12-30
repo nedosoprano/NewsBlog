@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace NewsBlog.Controllers
 {
@@ -37,30 +38,14 @@ namespace NewsBlog.Controllers
         }
 
         /// <summary>
-        /// Open main page with sorted articles
+        /// Open main page with sorted articles or choosen tags
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> Index(string sortMethod)
+        public async Task<ActionResult> Index(string sortMethod, string tags)
         {
-            var articlesForSorting = await _articlesService.GetAllAsync();
-            switch (sortMethod)
-            {
-                case "Title": return View(articlesForSorting.OrderBy(a => a.Title).Reverse());
-                default: return View(articlesForSorting.OrderBy(a => a.CreationDate));
-            }
-        }
-
-        /// <summary>
-        /// Open main page with choosen tags
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public async Task<ActionResult> FilteredArticles(string tags)
-        {
-            var tagsArr = GetTags(tags);
-            var searchedArticles = await ((ArticleService)_articlesService).GetByTagsAsync(tagsArr);
-            return View(searchedArticles);
+            if (tags != null) return View(await GetArticlesByTags(tags));
+            return View(await SortArticles(sortMethod));
         }
 
         /// <summary>
@@ -71,6 +56,33 @@ namespace NewsBlog.Controllers
         public async Task<ActionResult> Details(int id)
         {
             return View(await _articlesService.GetByIdAsync(id));
+        }
+
+        /// <summary>
+        /// Return articles with appropriate tag
+        /// </summary>
+        /// <param name="tags"></param>
+        /// <returns></returns>
+        private async Task<IEnumerable<Article>> GetArticlesByTags(string tags)
+        {
+            string[] tagsArr = GetTags(tags);
+            var chosenArticles = await ((ArticleService)_articlesService).GetByTagsAsync(tagsArr);
+            return chosenArticles;
+        }
+
+        /// <summary>
+        /// Return list of articles which sorted in the chosen order
+        /// </summary>
+        /// <param name="sortMethod"></param>
+        /// <returns></returns>
+        private async Task<IEnumerable<Article>> SortArticles(string sortMethod)
+        {
+            var articlesForSorting = await _articlesService.GetAllAsync();
+            switch (sortMethod)
+            {
+                case "Title": return articlesForSorting.OrderBy(a => a.Title).Reverse();
+                default: return articlesForSorting.OrderBy(a => a.CreationDate);
+            }
         }
 
         /// <summary>

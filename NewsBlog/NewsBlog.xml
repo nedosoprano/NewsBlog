@@ -55,15 +55,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:NewsBlog.Controllers.HomeController.Index(System.String)">
+        <member name="M:NewsBlog.Controllers.HomeController.Index(System.String,System.String)">
             <summary>
-            Open main page with sorted articles
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:NewsBlog.Controllers.HomeController.FilteredArticles(System.String)">
-            <summary>
-            Open main page with choosen tags
+            Open main page with sorted articles or choosen tags
             </summary>
             <returns></returns>
         </member>
@@ -72,6 +66,20 @@
             Open article full text
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.GetArticlesByTags(System.String)">
+            <summary>
+            Return articles with appropriate tag
+            </summary>
+            <param name="tags"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NewsBlog.Controllers.HomeController.SortArticles(System.String)">
+            <summary>
+            Return list of articles which sorted in the chosen order
+            </summary>
+            <param name="sortMethod"></param>
             <returns></returns>
         </member>
         <member name="M:NewsBlog.Controllers.HomeController.GetTags(System.String)">

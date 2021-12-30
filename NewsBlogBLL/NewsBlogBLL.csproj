@@ -46,6 +46,8 @@
     <Compile Include="Services\FeedbackService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\QuestionnaireResultService.cs" />
+    <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NewsBlogDAL\NewsBlogDAL.csproj">

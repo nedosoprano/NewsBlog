@@ -23,6 +23,9 @@ namespace NewsBlog
 
             Bind<IService<QuestionnaireResult>>().To<QuestionnaireResultService>();
             Bind<IRepository<QuestionnaireResult>>().To<QuestionnaireResultRepository>();
+
+            Bind<IUserService>().To<UserService>();
+            Bind<IUserRepository>().To<UserRepository>();
         }
     }
 }

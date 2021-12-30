@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<form id="form" method="post">
+    <input type="text" placeholder="Name" name="name">
+    <input type="password" placeholder="Password" name="password">
+    <input type="submit" id="button" value="LogIn">
+</form>
+<a>@Html.ActionLink("I want to create an account", "SignUp", "User")</a>
+
+

@@ -44,7 +44,7 @@ menu a {
     color: #3a3a3a;
 }
 
-#guest-form input, textarea {
+#form input, textarea {
     display: block;
     margin-bottom: 15px;
     clear: both;

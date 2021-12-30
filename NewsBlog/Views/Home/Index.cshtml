@@ -5,13 +5,14 @@
 }
 
 <div class="articles">
-    <form id="tags-form" method="post" action="/Home/FilteredArticles" onsubmit="return TagsCheck(this)">
+    <form id="tags-form" method="post" onsubmit="return TagsCheck(this)">
         <input type="text" placeholder="Tags" name="tags">
         <input type="submit" value="SUBMIT">
     </form>
     <form name="sortForm" method="post">
         <span class="sort">Article sort: </span>
         <select name="sortMethod" onchange="submit()">
+            <option disabled selected>Choose sorting</option>
             <option>Date</option>
             <option>Title</option>
         </select>
