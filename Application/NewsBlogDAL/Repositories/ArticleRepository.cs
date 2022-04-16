@@ -59,7 +59,7 @@ namespace NewsBlogDAL.Repositories
         /// <returns></returns>
         public async Task<IEnumerable<Article>> GetAllAsync()
         {
-            return await _newsBlogContext.Articles.ToListAsync();
+            return await _newsBlogContext.Articles.AsNoTracking().ToListAsync();
         }
 
         /// <summary>
