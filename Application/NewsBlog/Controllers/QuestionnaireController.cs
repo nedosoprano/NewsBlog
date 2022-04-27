@@ -29,7 +29,7 @@ namespace NewsBlog.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, User")]
         public ActionResult Questionnaire()
         {
             return View();
