@@ -176,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Helpers\MenuHelper.cs" />
     <Compile Include="Helpers\PickListHelper.cs" />
     <Compile Include="OwinStartup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,7 +17,7 @@ namespace NewsBlog.Helpers
         /// <returns>html string</returns>
         public static MvcHtmlString CreateList(this HtmlHelper html, List<Preference> items)
         {
-            if(items == null) return new MvcHtmlString("List is null");
+            if (items == null) return new MvcHtmlString("List is null");
             TagBuilder ul = new TagBuilder("ul");
             foreach (var item in items)
             {

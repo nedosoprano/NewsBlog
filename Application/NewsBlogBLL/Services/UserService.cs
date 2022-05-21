@@ -15,7 +15,18 @@ namespace NewsBlogBLL.Services
 
         public async Task<bool> CreateAsync(string name, string password)
         {
-            return await _userRepository.CreateAsync(name, password);
+            bool result;
+
+            try 
+            { 
+                result = await _userRepository.CreateAsync(name, password); 
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
         }
 
         public async Task<ClaimsIdentity> LoginAsync(string name, string password)

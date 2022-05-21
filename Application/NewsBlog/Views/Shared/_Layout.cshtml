@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using NewsBlog.Helpers
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,13 +19,7 @@
     </div>
     <div class="content">
         <div class="main-content">@RenderBody()</div>
-        <menu>
-            <a>@Html.ActionLink("Main page", "Index", "Home")</a>
-            <a>@Html.ActionLink("Guest page", "Guest", "Guest")</a>
-            <a>@Html.ActionLink("Questionnaire page", "Questionnaire", "Questionnaire")</a>
-            <a>@Html.ActionLink("Log In", "Login", "User")</a>
-            <a>@Html.ActionLink("Sign Out", "SignOut", "User")</a>
-        </menu>
+        @Html.CreateMenu(User.Identity.IsAuthenticated)
     </div>
     <footer>
         <span>&copy; Copyright Nataliia Lynnyk - @DateTime.Now.Year. All rights reserved</span>

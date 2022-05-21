@@ -41,6 +41,7 @@ namespace NewsBlog.Controllers
         /// <param name="result"></param>
         /// <returns>questionneire result page</returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Questionnaire(QuestionnaireResult result)
         {
             if (!ModelState.IsValid) return Redirect("Questionnaire");

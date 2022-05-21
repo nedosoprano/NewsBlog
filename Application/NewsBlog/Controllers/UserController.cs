@@ -38,8 +38,9 @@ namespace NewsBlog.Controllers
         public async Task<ActionResult> Login(string name, string password)
         {
             var userIdentity = await _userService.LoginAsync(name, password);
+
             if (userIdentity == null) 
-                return RedirectToAction("Index", "Home");
+                return View((object)"LogIn failed!");
 
             var authentificationManager = HttpContext.GetOwinContext().Authentication;
             authentificationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
@@ -58,10 +59,12 @@ namespace NewsBlog.Controllers
         {
             var result = await _userService.CreateAsync(name, password);
 
-            if (result) 
-                await _userService.LoginAsync(name, password);
+            if (!result)
+                return View((object)"SignUp failed!");
 
+            await _userService.LoginAsync(name, password);
             return RedirectToAction("Index", "Home");
+           
         }
 
         [HttpGet]

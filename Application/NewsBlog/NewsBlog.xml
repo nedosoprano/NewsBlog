@@ -151,6 +151,19 @@
             <param name="items"></param>
             <returns>html string</returns>
         </member>
+        <member name="T:NewsBlog.Helpers.MenuHelper">
+            <summary>
+            Create menu for integrate in html
+            </summary>
+        </member>
+        <member name="M:NewsBlog.Helpers.MenuHelper.CreateMenu(System.Web.Mvc.HtmlHelper,System.Boolean)">
+            <summary>
+            Create menu
+            </summary>
+            <param name="html"></param>
+            <param name="isLogIn"></param>
+            <returns>html string</returns>
+        </member>
         <member name="T:NewsBlog.Helpers.PickListHelper">
             <summary>
             Create list of inputters for integrate in html
